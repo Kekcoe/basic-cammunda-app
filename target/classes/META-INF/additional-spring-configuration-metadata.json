@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "camunda.bpm.server.port",
+      "type": "java.lang.String",
+      "description": "Description for camunda.bpm.server.port."
+  }
+] }
