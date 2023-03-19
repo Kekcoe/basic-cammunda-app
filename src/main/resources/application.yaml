@@ -1,3 +1,5 @@
+server:
+  port: 8081
 camunda.bpm:
   admin-user:
     id: demo
@@ -5,5 +7,3 @@ camunda.bpm:
     firstName: Demo
   filter:
     create: All tasks
-  server:
-      port: 8081

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0tu3z63" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.9.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <bpmn:process id="DelegateLesson5" name="DelegateLesson5" isExecutable="true">
+    <bpmn:startEvent id="start1" name="start" camunda:asyncBefore="true">
+      <bpmn:outgoing>Flow_01ic5xh</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="set_proc_var_parametr1" name="Устанавливаем переменную параметр1" camunda:asyncBefore="true">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="parametr1">delegateLesson5</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_01ic5xh</bpmn:incoming>
+      <bpmn:outgoing>Flow_17xwkdd</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_01ic5xh" sourceRef="start1" targetRef="set_proc_var_parametr1" />
+    <bpmn:sequenceFlow id="Flow_17xwkdd" sourceRef="set_proc_var_parametr1" targetRef="internal_service_task" />
+    <bpmn:endEvent id="end1" name="end" camunda:asyncBefore="true">
+      <bpmn:incoming>Flow_0ufw9r7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0ufw9r7" sourceRef="internal_service_task" targetRef="end1" />
+    <bpmn:serviceTask id="internal_service_task" name="Внутреняя задача" camunda:asyncBefore="true" camunda:delegateExpression="#{DelegateFromLesson5}">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_17xwkdd</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ufw9r7</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="DelegateLesson5">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="186" y="142" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1vfdj6v_di" bpmnElement="set_proc_var_parametr1">
+        <dc:Bounds x="290" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0dhc5f8_di" bpmnElement="end1">
+        <dc:Bounds x="692" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="701" y="142" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0vsacbt_di" bpmnElement="internal_service_task">
+        <dc:Bounds x="490" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_01ic5xh_di" bpmnElement="Flow_01ic5xh">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="290" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17xwkdd_di" bpmnElement="Flow_17xwkdd">
+        <di:waypoint x="390" y="117" />
+        <di:waypoint x="490" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ufw9r7_di" bpmnElement="Flow_0ufw9r7">
+        <di:waypoint x="590" y="117" />
+        <di:waypoint x="692" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
